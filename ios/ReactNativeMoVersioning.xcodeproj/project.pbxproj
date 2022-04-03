@@ -6,6 +6,10 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		98FC0A6227F9F9B3007F4085 /* ReactNativeMoVersioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FC0A6127F9F9B3007F4085 /* ReactNativeMoVersioning.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		986E644A224CFDF700BC642D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		986E644C224CFDF700BC642D /* libReactNativeMoVersioning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeMoVersioning.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FC0A6127F9F9B3007F4085 /* ReactNativeMoVersioning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeMoVersioning.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,7 @@
 		986E644E224CFDF700BC642D /* ReactNativeMoVersioning */ = {
 			isa = PBXGroup;
 			children = (
+				98FC0A6127F9F9B3007F4085 /* ReactNativeMoVersioning.m */,
 			);
 			path = ReactNativeMoVersioning;
 			sourceTree = "<group>";
@@ -112,6 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FC0A6227F9F9B3007F4085 /* ReactNativeMoVersioning.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

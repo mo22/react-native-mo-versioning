@@ -11,7 +11,6 @@ module.exports = {
             name: '[react-native-mo-versioning] Set Version',
             path: './ios-set-version.sh',
             execution_position: 'before_compile',
-            input_files: ['$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)'],
           },
         ],
       },

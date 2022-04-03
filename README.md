@@ -8,6 +8,15 @@ Install just like your ordinary react-native module.
 
 ## Notes
 
+For IOS there is a custom build script phase defined via `react-native.config.js` that updates the project's
+`Info.plist` file with the current version number.
+
+For Android TODO.
+
+
+https://github.com/mo22/react-native-mo-versioning
+https://github.com/react-native-community/cli/blob/master/docs/dependencies.md
+
 ```
 
 for ios:
