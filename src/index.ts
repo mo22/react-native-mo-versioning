@@ -1,2 +1,12 @@
-// this library does not export any functions
-console.log('index.ts');
+
+export function getAppVersion(): string {
+  return '';
+}
+
+export function getAppBuild(): string {
+  return '';
+}
+
+export function getAppGitRev(): string | null {
+  return null;
+}

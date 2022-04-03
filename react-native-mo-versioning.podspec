@@ -11,6 +11,8 @@ Pod::Spec.new do |spec|
   spec.license = package['license']
   spec.authors = package['author']
   spec.source = { :git => package['repository']['url'], :tag => 'main' }
+
+  spec.platform = :ios, "9.0"
   spec.source_files = "ios/**/*.{h,m}"
   spec.dependency "React-Core"
 end

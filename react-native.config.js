@@ -2,7 +2,6 @@ module.exports = {
   dependency: {
     platforms: {
       android: {
-        packageImportPath: 'import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;',
       },
       // https://github.com/react-native-community/cli/blob/master/docs/dependencies.md
       ios: {
