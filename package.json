@@ -1,6 +1,6 @@
 {
   "name": "react-native-mo-versioning",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "react-native automatically set ios and android version by package.json",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -32,10 +32,8 @@
     "url": "https://github.com/mo22/react-native-mo-versioning/issues"
   },
   "homepage": "https://github.com/mo22/react-native-mo-versioning#readme",
-  "rnpm": {
-    "commands": {
-      "postlink": "node node_modules/react-native-mo-versioning/link.js postlink",
-      "postunlink": "node node_modules/react-native-mo-versioning/link.js postunlink"
-    }
+  "scripts": {
+    "postinstall": "node link.js postlink",
+    "postuninstall": "node link.js postunlink"
   }
 }
