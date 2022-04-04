@@ -4,7 +4,7 @@ console.log('react-native-mo-versioning', NativeModules.ReactNativeMoVersioning)
 
 export function getAppVersion(): string {
   if (Platform.OS === "ios") {
-    return NativeModules.ReactNativeMoVersioning.info.CFBundleShortVersionString;
+    return NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleShortVersionString;
   } else if (Platform.OS === "android") {
     return NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_NAME;
   } else {
@@ -14,7 +14,7 @@ export function getAppVersion(): string {
 
 export function getAppBuild(): string {
   if (Platform.OS === "ios") {
-    return NativeModules.ReactNativeMoVersioning.info.CFBundleVersion; // to int?
+    return NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleVersion; // to int?
   } else if (Platform.OS === "android") {
     return NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_CODE;
   } else {
@@ -24,7 +24,7 @@ export function getAppBuild(): string {
 
 export function getAppGitRev(): string | null {
   if (Platform.OS === "ios") {
-    return NativeModules.ReactNativeMoVersioning.info.GitRev ?? null;
+    return NativeModules.ReactNativeMoVersioning.infoDictionary.GitRev ?? null;
   } else if (Platform.OS === "android") {
     return NativeModules.ReactNativeMoVersioning.buildConfig.GIT_REV ?? null;
   } else {
