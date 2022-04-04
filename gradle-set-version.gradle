@@ -1,0 +1,16 @@
+import groovy.json.JsonSlurper
+
+android {
+  defaultConfig {
+    def packageJson = new JsonSlurper().parseText(file("$projectDir/../../package.json").text)
+    def packageVersionName = packageJson.version as String
+    def packageVersionCode = Integer.parseInt(packageVersionName.tokenize('.')[2])
+    versionCode packageVersionCode
+    versionName packageVersionName
+
+    if ('git status'.execute().waitFor() == 0) {
+      def gitRev = 'git rev-parse --short HEAD'.execute().text.trim() + (('git diff --quiet'.execute().waitFor() == 0) ? '' : '-dirty')
+      buildConfigField "String", "GIT_REV", "\"${gitRev}\""
+    }
+  }
+}

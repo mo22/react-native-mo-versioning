@@ -34,8 +34,8 @@
   "homepage": "https://github.com/mo22/react-native-mo-versioning#readme",
   "rnpm": {
     "commands": {
-      "postlink": "echo node node_modules/react-native-mo-versioning/postlink",
-      "postunlink": "echo node node_modules/react-native-mo-versioning/postunlink"
+      "postlink": "node node_modules/react-native-mo-versioning/postlink.js",
+      "postunlink": "node node_modules/react-native-mo-versioning/postunlink.js"
     }
   }
 }

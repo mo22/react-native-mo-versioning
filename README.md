@@ -37,4 +37,11 @@ apply from: "../../node_modules/react-native-mo-versioning/react-native-mo-versi
 
 
 
+var linkTools = require('../../tools/linkToolsAndroid');
+    var buildGradlePath = linkTools.getBuildGradlePath();
+    var mainApplicationPath = linkTools.getMainApplicationLocation();
+
+    return path.join("android", "app", "build.gradle");
+
+
 ```
