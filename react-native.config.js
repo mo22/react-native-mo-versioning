@@ -1,8 +1,6 @@
 module.exports = {
   dependency: {
     platforms: {
-      android: {
-      },
       // https://github.com/react-native-community/cli/blob/master/docs/dependencies.md
       ios: {
         scriptPhases: [

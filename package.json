@@ -31,5 +31,11 @@
   "bugs": {
     "url": "https://github.com/mo22/react-native-mo-versioning/issues"
   },
-  "homepage": "https://github.com/mo22/react-native-mo-versioning#readme"
+  "homepage": "https://github.com/mo22/react-native-mo-versioning#readme",
+  "rnpm": {
+    "commands": {
+      "postlink": "echo node node_modules/react-native-mo-versioning/postlink",
+      "postunlink": "echo node node_modules/react-native-mo-versioning/postunlink"
+    }
+  }
 }
