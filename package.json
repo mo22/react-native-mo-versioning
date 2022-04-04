@@ -1,6 +1,6 @@
 {
   "name": "react-native-mo-versioning",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react-native automatically set ios and android version by package.json",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,7 +10,9 @@
     "lib/*",
     "android",
     "ios/**/*.{h,m,pbxproj}",
-    "*.podspec"
+    "*.podspec",
+    "*.gradle",
+    "*.sh"
   ],
   "devDependencies": {
     "@types/react-native": "^0.67.3",
