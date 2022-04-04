@@ -26,16 +26,16 @@ public class ReactNativeMoVersioning extends ReactContextBaseJavaModule {
         final Map<String, Object> buildConfig = new HashMap<>();
         try {
             final String packageName = getReactApplicationContext().getApplicationContext().getPackageName();
-            final Class clazz = Class.forName(packageName + ".BuildConfig");
+            final Class<?> clazz = Class.forName(packageName + ".BuildConfig");
             for (final Field field: clazz.getDeclaredFields()) {
                 try {
                     buildConfig.put(field.getName(), field.get(null));
-                }
-                catch (IllegalAccessException e) {
+                } catch (IllegalAccessException e) {
+                    // ignored
                 }
             }
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
+            // ignored
         }
         return new HashMap<String,Object>() {{
             put("buildConfig", buildConfig);
