@@ -6,7 +6,7 @@ set -e
 
 function plist_set() { # [plist-path] [key] [type] [value]
   if [ "$3" == "delete" ]; then
-    /usr/libexec/PlistBuddy -c "Delete $2" "$1" || \
+    /usr/libexec/PlistBuddy -c "Delete $2" "$1"
   else
     /usr/libexec/PlistBuddy -c "Set $2 $4" "$1" || \
       /usr/libexec/PlistBuddy -c "Add $2 $3 $4" "$1"
