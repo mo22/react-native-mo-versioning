@@ -1,24 +1,24 @@
 import { NativeModules, Platform } from "react-native";
 
-console.log('react-native-mo-versioning', NativeModules.ReactNativeMoVersioning);
+// console.log('react-native-mo-versioning', NativeModules.ReactNativeMoVersioning);
 
 export function getAppVersion(): string {
   if (Platform.OS === "ios") {
-    return NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleShortVersionString;
+    return NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleShortVersionString ?? '';
   } else if (Platform.OS === "android") {
-    return NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_NAME;
+    return NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_NAME ?? '';
   } else {
     return '';
   }
 }
 
-export function getAppBuild(): string {
+export function getAppBuild(): number {
   if (Platform.OS === "ios") {
-    return NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleVersion; // to int?
+    return parseInt(NativeModules.ReactNativeMoVersioning.infoDictionary.CFBundleVersion ?? '0');
   } else if (Platform.OS === "android") {
-    return NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_CODE;
+    return parseInt(NativeModules.ReactNativeMoVersioning.buildConfig.VERSION_CODE ?? '0');
   } else {
-    return '';
+    return 0;
   }
 }
 
