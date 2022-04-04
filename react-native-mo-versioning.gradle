@@ -7,14 +7,13 @@ android {
         def packageVersionCode = Integer.parseInt(packageVersionName.tokenize('.')[2])
         versionCode packageVersionCode
         versionName packageVersionName
-        println("MOXXX after ${android.defaultConfig.versionCode}")
-
         def gitRev = 'git rev-parse --short HEAD'.execute().text.trim() + (('git diff --quiet'.execute().waitFor() == 0) ? '' : '-dirty')
         buildConfigField "String", "GIT_REV", "\"${gitRev}\""
     }
 }
 
-project.afterEvaluate {
-    println("MOXXX project.afterEvaluate ${android.defaultConfig.versionCode}")
-    android.defaultConfig.versionCode = 55
-}
+// this is too late.
+// project.afterEvaluate {
+//     println("MOXXX project.afterEvaluate ${android.defaultConfig.versionCode}")
+//     android.defaultConfig.versionCode = 55
+// }

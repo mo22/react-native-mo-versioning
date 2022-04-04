@@ -28,6 +28,13 @@ GITREV="$( git rev-parse --short head )$( git diff --quiet || echo '-dirty' )"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD" "$SRCROOT/$INFOPLIST_FILE"
 /usr/libexec/PlistBuddy -c "Set :GitRev $GITREV" "$SRCROOT/$INFOPLIST_FILE"
 
+for android:
+
+need to modify app/build.gradle:
+
+apply from: "../../node_modules/react-native-mo-versioning/react-native-mo-versioning.gradle"
+
+
 
 
 ```
