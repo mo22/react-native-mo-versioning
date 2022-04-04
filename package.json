@@ -1,6 +1,6 @@
 {
   "name": "react-native-mo-versioning",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "react-native automatically set ios and android version by package.json",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

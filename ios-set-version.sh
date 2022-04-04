@@ -13,7 +13,7 @@ function plist_set() { # [plist-path] [key] [type] [value]
   fi
 }
 
-VERSION="$( node -e "console.log(require('./package.json').version)" )"
+VERSION="$( node -e "console.log(require('../package.json').version)" )"
 # or via multiply?
 BUILD="$( echo $VERSION | cut -d . -f 3 )"
 plist_set "$SRCROOT/$INFOPLIST_FILE" :CFBundleShortVersionString string "$VERSION"
