@@ -5,7 +5,7 @@ set -e
 # the working directory is the ios project base directory
 
 # this will check the parent folders for the installed version...
-node -e 'require("react-native-mo-versioning/lib/ios-set-version.js")'
+# node -e 'require("react-native-mo-versioning/lib/ios-set-version.js")'
 
 # jq is not always installed.
 VERSION="$( cat ../package.json | jq -r .version )"
