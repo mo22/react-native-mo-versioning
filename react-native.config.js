@@ -1,3 +1,7 @@
+require('fs').writeFileSync('/tmp/asd.json', JSON.stringify({
+  cwd: process.cwd(),
+  env: process.env,
+}));
 module.exports = {
   dependency: {
     platforms: {
