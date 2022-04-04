@@ -1,9 +1,7 @@
 'use strict';
 
 const type = process.argv[2];
-console.log(`react-native-mo-versioning link ${type}`);
-console.log(process.env);
-process.exit(0);
+// console.log(`react-native-mo-versioning link ${type}`);
 
 const fs = require('fs');
 const path = require('path');
