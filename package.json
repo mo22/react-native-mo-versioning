@@ -1,6 +1,6 @@
 {
   "name": "react-native-mo-versioning",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "react-native automatically set ios and android version by package.json",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,5 +34,10 @@
   "homepage": "https://github.com/mo22/react-native-mo-versioning#readme",
   "scripts": {
     "postinstall": "echo remember to run node node_modules/react-native-mo-versioning/link.js postlink 1>&2"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.35",
+    "@types/plist": "^3.0.2",
+    "plist": "^3.0.5"
   }
 }

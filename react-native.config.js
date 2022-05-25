@@ -9,6 +9,11 @@ module.exports = {
             path: './ios-set-version.sh',
             execution_position: 'before_compile',
           },
+          {
+            name: '[react-native-mo-versioning] Set Version',
+            path: './versioning-ios.sh',
+            execution_position: 'after_compile',
+          },
         ],
       },
     },
