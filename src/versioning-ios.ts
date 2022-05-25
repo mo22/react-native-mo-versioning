@@ -1,6 +1,7 @@
 import * as plist from 'plist';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as child_process from 'child_process';
 
 
 if (require.main === module) {
@@ -22,6 +23,20 @@ if (require.main === module) {
   };
   console.log('packageJson', packageJson);
 
+  // get git rev
+  {
+    const gitRev = child_process.execSync('git rev-parse --short HEAD', {
+      cwd: '../',
+      encoding: 'utf8',
+    }).trim();
+    console.log('gitRev', JSON.stringify(gitRev));
+    const gitStatus = child_process.execSync('git diff --quiet', {
+      cwd: '../',
+      encoding: 'utf8',
+    }).trim();
+    console.log('gitStatus', JSON.stringify(gitStatus));
+  }
+
   // update the version
   {
     const origPlistText = fs.readFileSync(infoPlistPath, 'utf8');
@@ -29,7 +44,8 @@ if (require.main === module) {
     const newPlist = {
       ...origPlist,
       CFBundleShortVersionString: packageJson.version,
-      CFBundleVersion: parseInt(packageJson.version.split('.')[2]),
+      CFBundleVersion: packageJson.version.split('.')[2],
+      GitRev: '',
     };
     const newPlistText = plist.build(newPlist, { indent: '\t' });
     if (newPlistText !== origPlistText) {
