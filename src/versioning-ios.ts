@@ -21,20 +21,25 @@ if (require.main === module) {
   const packageJson = JSON.parse(fs.readFileSync('../package.json').toString()) as {
     version: string;
   };
-  console.log('packageJson', packageJson);
 
   // get git rev
-  {
-    const gitRev = child_process.execSync('git rev-parse --short HEAD', {
+  let gitRev: string | null = null;
+  try {
+    gitRev = child_process.execSync('git rev-parse --short HEAD', {
       cwd: '../',
       encoding: 'utf8',
     }).trim();
-    console.log('gitRev', JSON.stringify(gitRev));
-    const gitStatus = child_process.execSync('git diff --quiet', {
-      cwd: '../',
-      encoding: 'utf8',
-    }).trim();
-    console.log('gitStatus', JSON.stringify(gitStatus));
+    try {
+      child_process.execSync('git diff --quiet', {
+        cwd: '../',
+        encoding: 'utf8',
+      }).trim();
+    } catch (err) {
+      // if git diff --quiet fails, this means the workspace is dirty
+      gitRev += '-dirty';
+    }
+  } catch (err) {
+    // ignore, no git?
   }
 
   // update the version
@@ -45,15 +50,14 @@ if (require.main === module) {
       ...origPlist,
       CFBundleShortVersionString: packageJson.version,
       CFBundleVersion: packageJson.version.split('.')[2],
-      GitRev: '',
+      ...(gitRev !== null) ? {
+        GitRev: gitRev,
+      } : {},
     };
     const newPlistText = plist.build(newPlist, { indent: '\t' });
     if (newPlistText !== origPlistText) {
       fs.writeFileSync(infoPlistPath, newPlistText);
     }
   }
-
-  // also include git revision?
-
 
 }
