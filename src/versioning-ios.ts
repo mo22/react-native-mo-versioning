@@ -1,7 +1,7 @@
-import plist from 'simple-plist';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as child_process from 'child_process';
+const plist: typeof import('simple-plist').default = require('simple-plist'); // broken typings?
 
 
 if (require.main === module) {
