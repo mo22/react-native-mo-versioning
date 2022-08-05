@@ -1,4 +1,4 @@
-import * as plist from 'plist';
+import plist from 'simple-plist';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as child_process from 'child_process';
@@ -44,8 +44,8 @@ if (require.main === module) {
 
   // update the version
   {
-    const origPlistText = fs.readFileSync(infoPlistPath, 'utf8');
-    const origPlist = plist.parse(origPlistText) as plist.PlistObject;
+    const origPlistText = fs.readFileSync(infoPlistPath);
+    const origPlist = plist.parse(origPlistText);
     const newPlist = {
       ...origPlist,
       CFBundleShortVersionString: packageJson.version,
@@ -54,8 +54,9 @@ if (require.main === module) {
         GitRev: gitRev,
       } : {},
     };
-    const newPlistText = plist.build(newPlist, { indent: '\t' });
-    if (newPlistText !== origPlistText) {
+    // const newPlistText = Buffer.from(plist.stringify(newPlist), 'utf-8');
+    const newPlistText = plist.bplistCreator(newPlist);
+    if (newPlistText.toString('base64') !== origPlistText.toString('base64')) {
       fs.writeFileSync(infoPlistPath, newPlistText);
     }
   }
