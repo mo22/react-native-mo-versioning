@@ -15,7 +15,7 @@
   "editor.comments.ignoreEmptyLines": true,
   "editor.autoClosingQuotes": "always",
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.tslint": "explicit"
   },
   "emmet.showExpandedAbbreviation": "never"
 }
